@@ -132,25 +132,18 @@ input, select {
   background-size: cover;
   
 }
-.arrow_img {
-  background-image: url(./images/arrow_img.png);
-  background-size: cover;
-  width: 60px;
-  height: 60px;
-  display:block;
-  margin: 20px 20px 20px 4px;
-  position: absolute;
-  right: 0px;
-  cursor: pointer;
-}
 .navbar {
   width:100%; 
+  right: 0;
+  top:0;
+  position: absolute;
 }
 .navbar ul {
   display: flex;
   flex-flow: row  wrap;
   height: 60px;
   margin: 20px 0 20px 0;
+  float: right;
 }
 
 
@@ -276,9 +269,6 @@ input, select {
 }
 /* responsive Home page */
 @media (max-width: 810px) {
-  .arrow_img{
-    display: block;
-  }
   .footer-col {
     width: 50%;
     margin-bottom: 30px;
