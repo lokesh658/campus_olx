@@ -110,7 +110,7 @@ function Sign_Up() {
           </div>
           <div className="form_error_message" style={{color:'red',textAlign:'center'}}>{form_errors.Confirmed_password}</div>
           <div className="form_error_message" style={{color:'red',textAlign:'center'}}>{form_errors.password_match}</div>
-          <button className="form__button" type="submit">Continue</button>
+          <button className="form__button" type="submit"  onClick={()=>navigate('/')} >Continue</button>
           <p className="form__text">
             <Link className="form__link" to='/' id="linkLogin"
               >Already have an account? Sign in</Link>
