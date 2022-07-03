@@ -93,7 +93,7 @@ input, select {
     vertical-align:middle;
 }
 
-/* Header styling */
+/* Header styling 
 .header {
   background-color: #050505;
   height: 100px;
@@ -197,7 +197,7 @@ input, select {
   border-radius: 5px;
 }
 
-/* Footer styling */
+ Footer styling 
 .footer {
   background-color: #24262b;
   padding: 70px 0;
@@ -266,7 +266,7 @@ input, select {
 .footer-col .social-links a:hover {
   color: #24262b;
   background-color: #ffffff;
-}
+} */
 /* responsive Home page */
 @media (max-width: 810px) {
   .footer-col {
