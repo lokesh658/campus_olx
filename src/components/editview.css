@@ -10,6 +10,7 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-family: 'Poiret One', cursive;
     font-family: 'Titillium Web', sans-serif;
+    color:#ccc;
 }
 
 
@@ -110,6 +111,7 @@ textarea {
     position:absolute; 
     cursor: pointer;
     width: auto;
+    border-radius: 12px;
 }
 
 .discard{
@@ -119,4 +121,5 @@ textarea {
     bottom: 2%; 
     left:2%;
     cursor: pointer;
+    border-radius: 12px;
 }

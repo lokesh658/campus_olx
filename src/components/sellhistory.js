@@ -7,7 +7,7 @@ import './sellhistory.css'
 
 export const Sellhistory = () => {
     return(
-        <div class="container">
+        <div class="container-h">
           <img alt="back" src={a}/>
             <img alt="bck" src={b}/>
             <img alt="bg" src={c}/>
