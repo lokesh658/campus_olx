@@ -17,6 +17,7 @@ import Post_Your_item from "./components/Post_Your_item";
 import { Buyhistory } from "./components/buyhistory";
 import { Edit } from "./components/editview";
 import { Sellhistory } from "./components/sellhistory";
+import Detail from './components/selling_items/details';
 import { ItemProvider } from "./Context";
 
 
@@ -32,6 +33,7 @@ function App() {
           <Route path='buyhistory' element={<Buyhistory/>}/>
           <Route path='editview' element={<Edit/>}/>
           <Route path='sellhistory' element={<Sellhistory/>}/>
+          <Route path='/sellhistory/details/:id' element={<Detail/>}/>
          <Route path="sell" element={<Post_Your_item/>}/>
         </Route>
       </Routes>
