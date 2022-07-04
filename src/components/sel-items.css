@@ -1,0 +1,32 @@
+
+
+.sellitems{
+    width: 200px;
+    height:200px;
+    margin:10px;
+    transition:all 0.5s;
+    border: 1.5px solid #8887;
+    border-radius: 5px;
+    box-shadow: 2px 2px 2px #888888;
+    color: #24262b;
+    text-align: center;
+    background-color: #fff;
+}
+
+/* .sellitems:hover{
+    transform: scale(1.1);
+} */
+
+.sell-img{
+    height:100% ;
+    width: 100%;
+}
+.sellitems_text {
+    display: none;
+}
+.sellitems_text:hover {
+    display: none;
+}
+
+
+

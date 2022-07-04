@@ -1,10 +1,13 @@
 
-
+import React from 'react'
 import './editview.css'
-import Ok from './images/okay 2.jpg'
+import Ok from '../images/okay 2.jpg'
+import AppHeader from './App_Header'
 
 export const Edit = () => {
     return(
+        <div>
+          <AppHeader/>
          <div class="view">
           <div class="pic">
                <div class="img">
@@ -21,6 +24,7 @@ export const Edit = () => {
            </div>
                 <button class="save">Save changes</button>
                 <button class="discard">Discard</button>
+        </div>
         </div>
 
     )

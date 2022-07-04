@@ -1,23 +1,19 @@
-import React from 'react'
-import AppHeader from './components/App_Header'
-import { Routes,Route } from 'react-router-dom';
-import {Home_page} from './components/Home_page.js';
-import { Edit } from './components/editview';
-import {Buyhistory} from './components/buyhistory';
-import {Sellhistory} from './components/sellhistory';
+import React, { Component } from 'react'
+import App_Header from './components/App_Header'
+import Footer from './components/Footer'
+import Itemlist from './components/Itemlist'
 
-function Home (){
+
+export class Home extends Component {
+  render() {
     return (
-      <div>
-        <AppHeader/>
-        <Routes>
-          <Route path='/' element={<Home_page/>}></Route>
-          <Route path='/editview' element={<Edit/>}></Route>
-          <Route path='/buyhistory' element={<Buyhistory/>}></Route>
-          <Route path='/sellhistory' element={<Sellhistory/>}></Route>
-        </Routes>
+      <div style={{backgroundColor:'rgb(0.5,0.5,0.5)'}}>
+        <App_Header/>
+        <Itemlist/>
+        <Footer/>
       </div>
     )
+  }
 }
 
-export default Home;
+export default Home

@@ -93,111 +93,9 @@ input, select {
     vertical-align:middle;
 }
 
-/* Header styling 
-.header {
-  background-color: #050505;
-  height: 100px;
-  width: 100%;
-  display: flex;
-  flex-flow: row wrap ;
-  border-bottom: #757575 solid 0.25rem;
-}
-.logo {
-  background-image: url(./images/olx_logo.png);
-  height: 80px;
-  width: 80px ;
-  background-size:cover;
-  margin: 10px 20px 0 40px;
-}
-.search_area {
-  flex-basis: 340px;
-  display: flex;
-  flex-flow: row wrap;
-  margin: 38px 0 38px 40px;
-  border: white solid 0.02rem;
-  border-radius: 5px;
-  height: 30px;
-  overflow: hidden;
+/* Header styling */
 
-}
-.search_area input {
-  font-size: 16px;
-  line-height: 30px;
-  width: 300px;
-}
-.search_area .search_img {
-  background-image: url(./images/search_img.png);
-  height: 30px;
-  width: 30px ;
-  background-size: cover;
-  
-}
-.navbar {
-  width:100%; 
-  right: 0;
-  top:0;
-  position: absolute;
-}
-.navbar ul {
-  display: flex;
-  flex-flow: row  wrap;
-  height: 60px;
-  margin: 20px 0 20px 0;
-  float: right;
-}
-
-
-.chat_icon {
-  background-image: url(./images/chat_icon.png);
-  display: block;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  background-position: center;
-  background-size: cover;
-  margin: 10px 10px 10px 10px;
-  cursor: pointer;
-}
-.notify_icon {
-  background-image: url(./images/notify_icon.png);
-  width: 40px;
-  height: 40px;
-  display: block;
-  text-align: center;
-  background-position: center;
-  background-size: cover;
-  margin: 10px 10px 10px 10px;
-  cursor: pointer;
-}
-
-.profile_name {
-  background-image: url(./images/profile_img.jpeg);
-  display: block;
-  width: 60px;
-  height: 60px;
-  background-size: cover;
-  margin: 0 10px 0 10px;
-  cursor: pointer;
-}
-.sell_button {
-  width: 100px;
-  height: 60px;
-  display: block;
-  margin: 0 10px 0 10px;
-  cursor: pointer;
-}
-.sell_button button {
-  font-size: 24px;
-  line-height: 30px;
-  width: 100%;
-  color: white;
-  margin: 15px 0 15px 0;
-  background-color: #050505;
-  border: white solid 0.05rem;
-  border-radius: 5px;
-}
-
- Footer styling 
+/* Footer styling */
 .footer {
   background-color: #24262b;
   padding: 70px 0;
@@ -266,7 +164,7 @@ input, select {
 .footer-col .social-links a:hover {
   color: #24262b;
   background-color: #ffffff;
-} */
+}
 /* responsive Home page */
 @media (max-width: 810px) {
   .footer-col {
@@ -412,3 +310,22 @@ input, select {
 .form__link:hover {
   text-decoration: underline;
 }
+
+/* sell_item form styling */
+ .sell_item_form {
+  display:box;
+  padding:16px 40px;
+  width: 80%; 
+  margin: 0 auto;
+ }
+ .form_item_div {
+  color: #000;
+  font-size: 16px;
+  padding:16px 0;
+ }
+ .post_item_submit {
+  font-size: 16px;
+  font-weight:bold;
+  margin: 20px 0;
+  border-radius: 5px;
+ }

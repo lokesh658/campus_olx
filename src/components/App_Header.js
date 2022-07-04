@@ -9,7 +9,7 @@ import { ReactComponent as Edit_symbol} from './icons/edit.svg';
 import { ReactComponent as Buy_symbol} from './icons/buy.svg';
 import { ReactComponent as Sell_symbol} from './icons/sell.svg';
 import { ReactComponent as Bars} from './icons/bars.svg';
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import React, { useState,useRef } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler'; //run ->  npm i react-outside-click-handler
 
@@ -42,7 +42,7 @@ function Navbar(props) {
       <OutsideClickHandler
       onOutsideClick={()=>{setMobile(false);}} >
       <div  className={mobile?"navbar-nav-mobile":"navbar-nav"}>{props.children}
-        <div className='sell'><PlusIcon/><h1>Sell</h1></div>
+        <Link to='/user/sell'><div className='sell'><PlusIcon/><h1>Sell</h1></div></Link>
       </div>   
       <button  className="nav-btn" onClick={()=>setMobile(!mobile)}>
                 <Bars/>
@@ -85,10 +85,10 @@ function DropdownMenu() {
   return (
     <div className="dropdown">
         <div className="menu">
-        <Link className="a" to='editview'><DropdownItem leftIcon={<Edit_symbol/>}>View and Edit profile</DropdownItem></Link>
-        <Link className="a" to='buyhistory'> <DropdownItem
+        <Link className="a" to='/user/editview'><DropdownItem leftIcon={<Edit_symbol/>}>View and Edit profile</DropdownItem></Link>
+        <Link className="a" to='/user/buyhistory'> <DropdownItem
             leftIcon={<Buy_symbol/>}> Buying history </DropdownItem></Link>
-        <Link className="a" to='sellhistory'> <DropdownItem
+        <Link className="a" to='/user/sellhistory'> <DropdownItem
             leftIcon={<Sell_symbol/>}> Selling history </DropdownItem></Link>
         </div>    
     </div>
@@ -96,4 +96,3 @@ function DropdownMenu() {
 }
 
 export default AppHeader;
-

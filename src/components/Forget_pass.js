@@ -27,8 +27,8 @@ function Forget_Pass() {
         return errors
     }
     useEffect(()=>{
-        if((Object.keys(form_errors)===0)&(issubmit)){
-            navigate('/user')
+        if((Object.keys(form_errors).length===0)&(issubmit)){
+          navigate(-1)
         }
     })
   return (
