@@ -2,9 +2,7 @@ import React from "react";
 import { useState,createContext } from "react";
 
 export const ItemContext=createContext()
-
-export const ItemProvider=(props)=>{
-    const items=[
+export const items=[
         {
             id:'0',
             brand:'tesla',
@@ -87,6 +85,9 @@ export const ItemProvider=(props)=>{
         }
 
     ]
+
+export const ItemProvider=(props)=>{
+
     const [item_state, setitem_state] = useState(items)
     return(
         <ItemContext.Provider value={[item_state,setitem_state]}>
