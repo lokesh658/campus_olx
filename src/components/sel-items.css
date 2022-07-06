@@ -1,31 +1,30 @@
 
 
 .sellitems{
-    width: 200px;
-    height:200px;
+    width: 240px;
+    height:240px;
     margin:10px;
     transition:all 0.5s;
     border: 1.5px solid #8887;
     border-radius: 5px;
     box-shadow: 2px 2px 2px #888888;
-    color: #24262b;
+    /* color: #24262b; */
+    color: red;
     text-align: center;
     background-color: #fff;
 }
 
-/* .sellitems:hover{
+.sellitems:hover{
     transform: scale(1.1);
-} */
+}
+.sell_item_prop {
+    z-index: -100;
+}
 
 .sell-img{
-    height:100% ;
-    width: 100%;
-}
-.sellitems_text {
-    display: none;
-}
-.sellitems_text:hover {
-    display: none;
+    width: 80%;
+    height: 80%;
+    background-size: cover;
 }
 
 

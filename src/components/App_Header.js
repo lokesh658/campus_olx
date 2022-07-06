@@ -12,9 +12,12 @@ import { ReactComponent as Bars} from './icons/bars.svg';
 import { Link, Navigate } from "react-router-dom";
 import React, { useState,useRef } from 'react';
 import OutsideClickHandler from 'react-outside-click-handler'; //run ->  npm i react-outside-click-handler
+import { Items } from '../Context';
+import { useContext } from 'react';
+import { ItemContext } from '../Context';
 
 
-function AppHeader() {
+function AppHeader() { 
 
   return (
     <Navbar>
@@ -30,15 +33,38 @@ function AppHeader() {
 function Navbar(props) {
 
   const [mobile,setMobile]=useState(false);
-
+  const [sarch,setsarch]=useState()
+  const [item_state,setitem_state]=useContext(ItemContext)
+  const conditoncheck=(item_cat)=>{
+    const arr=sarch.split(' ').map((s_word)=>{
+      return((item_cat.description.toLowerCase().search(s_word.toLowerCase()))>=0)||(((item_cat.title.toLowerCase().search(s_word.toLowerCase()))>=0))||(((item_cat.brand.toLowerCase().search(s_word.toLowerCase()))>=0))||(((item_cat.category.toLowerCase().search(s_word.toLowerCase()))>=0))
+    })
+    let sum=0
+    arr.map((check)=>{
+      if(check==true){return sum++}else{return sum}
+    })
+    if(sum>0){return true}else{return false}
+  }
+  const handleSearch=()=>{
+    const result=Items.filter((item_cat)=>{
+      return(conditoncheck(item_cat))
+    })
+    setitem_state(result)
+  }
 
   return (
     <nav>
       <div className="navbar">
       <div className="logo" > <Link className="a" to='/user'> <Logo /> </Link></div>
       <div className='search'>
-        <input placeholder='Search'></input>
-        <button><Search/></button></div>
+        <input 
+        placeholder='Search'
+        autoFocus
+        name='key'
+        value={sarch}
+        onChange={(e)=>setsarch(e.target.value)}
+        />
+        <button onClick={handleSearch}><Search/></button></div>
       <OutsideClickHandler
       onOutsideClick={()=>{setMobile(false);}} >
       <div  className={mobile?"navbar-nav-mobile":"navbar-nav"}>{props.children}

@@ -18,8 +18,11 @@ function Forget_Pass() {
     }
     const validation=(values)=>{
         const errors={}
+        const regex_email=/^[a-zA-Z0-9]+@[a-zA-Z0-9]+\.[A-Za-z]+$/
         if(!values.Email_address){
             errors.Email_address='Email address is required'
+        }else if(!regex_email.test(values.Email_address)){
+          errors.Email_address='Inavlid type email address'
         }
         if(!values.OTP){
             errors.OTP='Fill your OTP'

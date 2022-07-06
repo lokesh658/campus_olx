@@ -1,3 +1,5 @@
+//jshint esversion:6
+
 import React from 'react'
 import {useState,useContext} from 'react'
 import { ItemContext } from '../Context'
@@ -43,7 +45,7 @@ function Itemlist() {
       </div>
       <div>
       {items.map((item)=>(
-      <Sellitem price={item.price} title={item.title} id={item.id} key={item.id}/>
+      <Sellitem price={item.price} title={item.title} id={item.id} key={item.id} brand={item.brand} description={item.description} category={item.category}/>
       ))}
       </div>
     </div>
