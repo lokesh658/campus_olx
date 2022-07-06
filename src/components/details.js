@@ -9,7 +9,7 @@ function Detail(){
     const { id,brand,title,description,price,category} = useParams();
     return(
         <div className="item_complete_desc">
-            <div class="container" style={{width:'100%'}}>
+            <div class="container_p" style={{width:'100%'}}>
                 
         {/* <!-- Left Column / Headphones Image --> */}
         <div class="left-column">
