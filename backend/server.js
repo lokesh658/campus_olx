@@ -5,6 +5,14 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require("express-session");
 const passport = require('passport');
+const cors=require("cors");
+const corsOptions ={
+   origin:'*', 
+   credentials:true,            //access-control-allow-credentials:true
+   optionSuccessStatus:200,
+}
+
+app.use(cors(corsOptions)) 
 const passportLocalMongoose = require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate = require('mongoose-findorcreate');
@@ -13,6 +21,7 @@ const MicrosoftStrategy = require('passport-microsoft').Strategy;
 
 const app = express();
 
+app.use(cors());
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({
@@ -58,7 +67,7 @@ passport.deserializeUser(function(id, done) {
 passport.use(new GoogleStrategy({
     clientID: process.env.GOOGLE_CLIENT_ID,
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/google/secrets"
+    callbackURL: "http://localhost:5000/auth/google/secrets"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({
@@ -72,7 +81,7 @@ passport.use(new GoogleStrategy({
 passport.use(new FacebookStrategy({
     clientID: process.env.FACEBOOK_APP_ID,
     clientSecret: process.env.FACEBOOK_APP_SECRET,
-    callbackURL: "http://localhost:3000/auth/facebook/secrets"
+    callbackURL: "http://localhost:5000/auth/facebook/secrets"
   },
   function(accessToken, refreshToken, profile, cb) {
     User.findOrCreate({
@@ -87,7 +96,7 @@ passport.use(new MicrosoftStrategy({
     // Standard OAuth2 options
     clientID: process.env.MICROSOFT_CLIENT_ID,
     clientSecret: process.env.MICROSOFT_CLIENT_SECRET,
-    callbackURL: "http://localhost:3000/auth/microsoft/secrets",
+    callbackURL: "http://localhost:5000/auth/microsoft/secrets",
     scope: ['user.read'],
 
     // Microsoft specific options
@@ -112,7 +121,7 @@ passport.use(new MicrosoftStrategy({
 ));
 
 
-
+// home page //
 app.get("/", function(req, res) {
   res.render("home");
 });
@@ -120,10 +129,11 @@ app.get("/", function(req, res) {
 
 
 
-
+// authentication //
 app.get("/auth/google",
   passport.authenticate("google", {
-    scope: ["profile"]
+    scope: ["profile"],
+    prompt: 'select_account'
   })
 );
 
@@ -168,6 +178,7 @@ app.get('/auth/microsoft/secrets',
 
 
 
+// login page //
 app.get("/login", function(req, res) {
   res.render("login");
 });
@@ -180,6 +191,7 @@ app.post("/login", function(req, res) {
   req.login(user, function(err) {
     if (err) {
       console.log(err);
+      // res.redirect('/register');
     } else {
       passport.authenticate("local")(req, res, function() {
         res.redirect("/secrets");
@@ -189,6 +201,7 @@ app.post("/login", function(req, res) {
 });
 
 
+// register page //
 app.get("/register", function(req, res) {
   res.render("register");
 });
@@ -262,6 +275,6 @@ app.get("/logout", function(req, res) {
 
 
 
-app.listen(3000, function() {
-  console.log('Server started on port 3000.');
+app.listen(process.env.PORT || 5000, function() {
+  console.log('Server started on port 5000.');
 });

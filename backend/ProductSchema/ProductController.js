@@ -2,7 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 
 // Extracting the Product Model
-const Product = require('../Models/productModel')
+const Product = require('../ProductSchema/productModel')
 
 
 // Verifing the highest price in the bids for a Product and returns the Highest Price
