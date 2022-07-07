@@ -1,13 +1,18 @@
 //jshint esversion:6
 
-import React from 'react'
+import React, { Component } from 'react'
 import {useState,useContext} from 'react'
+import OutsideClickHandler from 'react-outside-click-handler';
 import { ItemContext } from '../Context'
-import AppHeader from './App_Header'
 import Sellitem from './sel-items'
 import { Items } from '../Context'
+import { ReactComponent as Caret } from './icons/caret.svg'
+import './itemlist.css'
 
 function Itemlist() {
+
+    const [mobile,setMobile]=useState(false);
+    const [mobileR,setMobileR]=useState(false);
     const [items,setitems]=useContext(ItemContext)
     const [range,setrange]=useState({lower:'',upper:''})
     const filter_item=(item_category)=>{
@@ -22,28 +27,41 @@ function Itemlist() {
       })
       setitems(range_result)
     }
-  return (
-    <div style={{display:'flex',flexFlow:'row wrap',margin:'40px calc(10%)',}}>
-      <div className="filter_list">
-        Fiter Items
-        <ul>
-          <li><button onClick={()=>filter_item('Book')}>Books</button></li>
-          <li><button onClick={()=>filter_item('Electronics')}>Electronics</button></li>
-          <li><button onClick={()=>filter_item('Cycle')}>Cycles</button></li>
-          <li><button onClick={()=>filter_item('Fashion')}>Fashion</button></li>
-          <li><button onClick={()=>filter_item('Sports')}>Sports</button></li>
+  function FilterList(){
+    return(
+         <ul>
+          <li><button class = "btn" onClick={()=>filter_item('Book')}>Books</button></li>
+          <li><button class = "btn" onClick={()=>filter_item('Electronics')}>Electronics</button></li>
+          <li><button class = "btn" onClick={()=>filter_item('Cycle')}>Cycles</button></li>
+          <li><button class = "btn" onClick={()=>filter_item('Fashion')}>Fashion</button></li>
+          <li><button class = "btn" onClick={()=>filter_item('Sports')}>Sports</button></li>
         </ul>
-        Filter Range
-        <ul>
-          <li><button onClick={()=>filter_range(0,200)}>below 200</button></li>
-          <li><button onClick={()=>filter_range(200,400)}>200-400</button></li>
-          <li><button onClick={()=>filter_range(400,600)}>400-600</button></li>
-          <li><button onClick={()=>filter_range(600,800)}>600-800</button></li>
-          <li><button onClick={()=>filter_range(800,100000)}>above 800</button></li>
+    )
+  }
+  function FilterRange(){
+    return(
+      <ul>
+          <li><button class = "btn" onClick={()=>filter_range(0,200)}>below 200</button></li>
+          <li><button class = "btn" onClick={()=>filter_range(200,400)}>200-400</button></li>
+          <li><button class = "btn" onClick={()=>filter_range(400,600)}>400-600</button></li>
+          <li><button class = "btn" onClick={()=>filter_range(600,800)}>600-800</button></li>
+          <li><button class = "btn" onClick={()=>filter_range(800,100000)}>above 800</button></li>
         </ul>
         
+    )
+  }
+  return (
+    <div className='ad-list'>
+      <OutsideClickHandler
+      onOutsideClick={()=>{setMobile(false);setMobileR(false);}} >
+      <div className="filter_list">
+        <button className='but' onClick={()=>setMobile(!mobile)}>Fiter Items <Caret/></button>
+         {mobile && <FilterList/>}
+        <button className='but' onClick={()=>setMobileR(!mobileR)}>Filter Range <Caret/></button>
+         {mobileR && <FilterRange/>}      
       </div>
-      <div>
+      </OutsideClickHandler>
+      <div className='itemss'>
       {items.map((item)=>(
       <Sellitem price={item.price} title={item.title} id={item.id} key={item.id} brand={item.brand} description={item.description} category={item.category}/>
       ))}
@@ -52,4 +70,4 @@ function Itemlist() {
   )
 }
 
-export default Itemlist
+export default Itemlist;

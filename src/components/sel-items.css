@@ -1,31 +1,29 @@
 
 
+.container-si{
+    display: inline-block;
+    align-items: center;
+    justify-content:center;
+}
+
 .sellitems{
     width: 240px;
     height:240px;
     margin:10px;
     transition:all 0.5s;
-    border: 1.5px solid #8887;
-    border-radius: 5px;
-    box-shadow: 2px 2px 2px #888888;
-    /* color: #24262b; */
-    color: red;
     text-align: center;
     background-color: #fff;
+    border: 2px solid #616263;
+    color: #000;
 }
 
 .sellitems:hover{
     transform: scale(1.1);
 }
-.sell_item_prop {
-    z-index: -100;
-}
 
-.sell-img{
-    width: 80%;
-    height: 80%;
-    background-size: cover;
+.sellitems img {
+    height: 200px;
+    width: 200px;
 }
-
 
 

@@ -10,7 +10,6 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-family: 'Poiret One', cursive;
     font-family: 'Titillium Web', sans-serif;
-    color:#ccc;
 }
 
 
@@ -23,6 +22,16 @@ body {
 .pic{
     width: 38%;
     text-align: center;
+}
+
+.ed{
+  align-items: center;
+  cursor: pointer;
+}
+
+.ed svg{
+  width: 20px;
+  height: 20px;
 }
 
 .img {

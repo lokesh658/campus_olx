@@ -8,11 +8,14 @@ import AppHeader from './App_Header'
 
 export const Buyhistory = () => {
     return(
+        <>
+        <AppHeader/>
         <div class="container-b">
           <img alt="back" src={a}/>
             <img alt="bck" src={b}/>
             <img alt="bg" src={c}/>
             <img alt="ckg" src={d}/>
         </div>
+        </>
     )
 }

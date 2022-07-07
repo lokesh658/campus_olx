@@ -63,7 +63,7 @@ body {
 }
 
 
-img{
+.container-h img{
     width:350px;
     height:300px;
     margin:10px;
@@ -72,6 +72,6 @@ img{
     box-shadow: 4px 4px 5px #888888;
 }
 
-img:hover{
+.container-h img:hover{
     transform: scale(1.1);
 }

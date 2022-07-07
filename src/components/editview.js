@@ -3,6 +3,7 @@ import React from 'react'
 import './editview.css'
 import Ok from '../images/okay 2.jpg'
 import AppHeader from './App_Header'
+import { ReactComponent as Edit_symbol} from './icons/edit.svg'
 
 export const Edit = () => {
     return(
@@ -12,7 +13,7 @@ export const Edit = () => {
           <div class="pic">
                <div class="img">
                     <img alt="ok" src={Ok} /></div>
-                     edit profile picture
+                    <div className="ed"><Edit_symbol/>edit profile picture</div>
           </div>
           <div class="info">
                 Basic information :<br/>
