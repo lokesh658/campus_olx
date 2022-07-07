@@ -1,7 +1,8 @@
 import React, {Component,useState,useEffect} from 'react'
 import { useNavigate} from 'react-router-dom'
 import { Link } from 'react-router-dom'
- 
+import  axios from 'axios' 
+
 function Login() {
   let navigate= useNavigate()
   let initial_values ={Username:'',Password:''}
@@ -16,6 +17,16 @@ function Login() {
     e.preventDefault()
     setform_errors(validation(form_values))  
     setissubmit(true)
+   const { Username, Password } = form_values;
+    const user = {
+      Username: Username,
+      Password: Password
+    }
+    axios.post('http://localhost:5000/login', user)
+      .then((res) => console.log('Login Successful.'))
+      .catch(err => {
+        console.log(err);
+      });
   }
   const validation=(values)=>{
     const errors ={};
@@ -27,11 +38,11 @@ function Login() {
     }
     return errors;
   }
-  useEffect(()=>{
-    if((Object.keys(form_errors).length===0) & (issubmit)){
-      navigate('/user')
-    } 
-  },[form_errors])
+//   useEffect(()=>{
+//     if((Object.keys(form_errors).length===0) & (issubmit)){
+//       navigate('/user')
+//     } 
+//   },[form_errors])
   return (
     <div>
         <div className="Login_background">
